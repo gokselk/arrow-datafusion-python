@@ -65,7 +65,7 @@ Simple usage:
     assert result.column(1) == pyarrow.array([-3, -3, -3])
 
 
-We can also execute a query against data stored in CSV 
+We can also execute a query against data stored in CSV
 
 .. code-block:: bash
 
@@ -83,7 +83,7 @@ We can also execute a query against data stored in CSV
 
     # register a CSV
     ctx.register_csv('example', 'example.csv')
-  
+
     # create a new statement
     df = ctx.table('example').select(
         col("a") + col("b"),
@@ -97,7 +97,7 @@ We can also execute a query against data stored in CSV
     assert result.column(1) == pyarrow.array([-3, -3, -3])
 
 
-And how to execute a query against a CSV using SQL: 
+And how to execute a query against a CSV using SQL:
 
 
 .. code-block:: python
@@ -241,7 +241,7 @@ Bootstrap:
     # update pip itself if necessary
     python -m pip install -U pip
     # install dependencies (for Python 3.8+)
-    python -m pip install -r requirements-310.txt
+    python -m pip install --require-hashes --no-deps -r requirements.txt
 
 The tests rely on test data in git submodules.
 
@@ -269,14 +269,14 @@ To change test dependencies, change the `requirements.in` and run
 
     # install pip-tools (this can be done only once), also consider running in venv
     python -m pip install pip-tools
-    python -m piptools compile --generate-hashes -o requirements-310.txt
+    python -m piptools compile --generate-hashes -o requirements.txt
 
 
 To update dependencies, run with `-U`
 
 .. code-block:: shell
 
-   python -m piptools compile -U --generate-hashes -o requirements-310.txt
+   python -m piptools compile -U --generate-hashes -o requirements.txt
 
 
 More details about pip-tools `here <https://github.com/jazzband/pip-tools>`_
